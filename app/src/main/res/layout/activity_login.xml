@@ -15,10 +15,9 @@
         android:layout_marginStart="58dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="62dp"
-        android:text="TextView"
+        android:hint="password"
         tools:layout_editor_absoluteX="223dp"
-        tools:layout_editor_absoluteY="58dp"
-        android:hint= "username"/>
+        tools:layout_editor_absoluteY="58dp" />
 
     <EditText
         android:id="@+id/etUsername"
@@ -30,11 +29,10 @@
         android:layout_marginStart="60dp"
         android:layout_marginTop="68dp"
         android:layout_marginEnd="60dp"
-        android:text="TextView"
+        android:hint="username"
+        android:inputType="textPassword"
         tools:layout_editor_absoluteX="223dp"
-        tools:layout_editor_absoluteY="58dp"
-        android:hint="password"
-        android:inputType="textPassword" />
+        tools:layout_editor_absoluteY="58dp" />
 
 
     <Button

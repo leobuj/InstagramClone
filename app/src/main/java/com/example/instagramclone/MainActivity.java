@@ -38,7 +38,8 @@ public class MainActivity extends AppCompatActivity {
     public static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 42;
     public static final String photoFileName = "photo.png";
 
-    ImageButton ibLogout;
+    private ImageButton ibLogout;
+    private ImageButton ibFeed;
     private EditText etDescription;
     private Button btnCaptureImage;
     private Button btnSubmit;
@@ -63,10 +64,20 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        ibFeed = findViewById(R.id.ibFeed);
+        ibFeed.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this, FeedActivity.class);
+                startActivity(i);
+            }
+        });
+
         etDescription = findViewById(R.id.etDescription);
         btnCaptureImage = findViewById(R.id.btnTakePicture);
         btnSubmit = findViewById(R.id.btnSubmit);
         ivSubmit = findViewById(R.id.ivSubmittedPicture);
+
 
         //queryPosts();
 

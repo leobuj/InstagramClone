@@ -40,4 +40,10 @@ dependencies {
     implementation "androidx.recyclerview:recyclerview:1.1.0"
     implementation 'com.github.bumptech.glide:glide:4.11.0'
 
+    // For Refresh layout
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.0.0'
+
+    // For Parcelable
+    implementation 'org.parceler:parceler-api:1.1.12'
+    annotationProcessor 'org.parceler:parceler:1.1.12'
 }

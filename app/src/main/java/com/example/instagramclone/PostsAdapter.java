@@ -1,6 +1,8 @@
 package com.example.instagramclone;
 
 import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,10 +15,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.parse.ParseFile;
 
+import org.parceler.Parcels;
+
 import java.util.List;
 
 public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> {
 
+    public static final String TAG = "inside PostsAdapter";
     private Context context;
     private List<Post> posts;
 
@@ -43,7 +48,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
         return posts.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         private TextView tvUsername;
         private TextView tvDescription;
@@ -54,6 +59,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
             tvDescription = itemView.findViewById(R.id.tvDescription);
             tvUsername = itemView.findViewById(R.id.tvUsername);
             ivImage = itemView.findViewById(R.id.ivImage);
+            itemView.setOnClickListener(this);
         }
 
         public void bind(Post post) {
@@ -65,5 +71,42 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
                 Glide.with(context).load(image.getUrl()).into(ivImage);
             }
         }
+
+        @Override
+        public void onClick(View v) {
+            // collects position
+            int position = getAdapterPosition();
+            Log.i(TAG, "Post position= " + getAdapterPosition());
+            // verifies this position exists
+            if (position != RecyclerView.NO_POSITION){
+
+                // collects movie at said position
+                Post post = posts.get(position);
+
+                // creates intent for new activity
+                Intent intent = new Intent(context, PostDetails.class);
+
+                intent.putExtra("post", Parcels.wrap(post));
+
+                // show activity
+                context.startActivity(intent);
+            }
+        }
+
     }
+
+
+    /* Within the RecyclerView.Adapter class */
+    // Clean all elements of the recycler
+    public void clear() {
+        posts.clear();
+        notifyDataSetChanged();
+    }
+
+    // Add a list of items -- change to type used
+    public void addAll(List<Post> list) {
+        posts.addAll(list);
+        notifyDataSetChanged();
+    }
+
 }

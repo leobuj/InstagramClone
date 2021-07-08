@@ -51,14 +51,18 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         private TextView tvUsername;
+        private TextView tvUsernameCaption;
         private TextView tvDescription;
         private ImageView ivImage;
+        private ImageView ivProfileImage;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tvDescription = itemView.findViewById(R.id.tvDescription);
             tvUsername = itemView.findViewById(R.id.tvUsername);
+            tvUsernameCaption = itemView.findViewById(R.id.tvUsernameCaption);
             ivImage = itemView.findViewById(R.id.ivImage);
+            ivProfileImage = itemView.findViewById(R.id.ivProfileImage);
             itemView.setOnClickListener(this);
         }
 
@@ -66,9 +70,14 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
             // Bind the post data to the view elements
             tvDescription.setText(post.getDescription());
             tvUsername.setText(post.getUser().getUsername());
+            tvUsernameCaption.setText(post.getUser().getUsername());
             ParseFile image = post.getImage();
             if (image != null) {
                 Glide.with(context).load(image.getUrl()).into(ivImage);
+            }
+            ParseFile profileImage = post.getUserProfileImage();
+            if (profileImage != null) {
+                Glide.with(context).load(profileImage.getUrl()).circleCrop().into(ivProfileImage);
             }
         }
 

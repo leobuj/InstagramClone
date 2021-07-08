@@ -47,4 +47,15 @@
         android:layout_marginEnd="62dp"
         android:text="Login" />
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="316dp"
+        android:layout_height="34dp"
+        android:layout_below="@+id/btnLogin"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="35dp"
+        android:gravity="center_horizontal"
+        android:text="Forgot your login details? Get help signing in." />
+
 </RelativeLayout>

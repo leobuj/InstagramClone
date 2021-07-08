@@ -1,36 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/instagram_background">
+
+
+    <ImageView
+        android:id="@+id/ivFBlogo"
+        android:layout_width="76dp"
+        android:layout_height="22dp"
+        android:layout_below="@+id/btnLogin"
+        android:layout_marginTop="115dp"
+        android:layout_marginEnd="-165dp"
+        android:layout_toStartOf="@+id/tvLoginWithFacebook"
+        app:srcCompat="@drawable/small_facebook" />
+
+    <TextView
+        android:id="@+id/tvLoginWithFacebook"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnLogin"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="117dp"
+        android:backgroundTint="#B14D4D"
+        android:gravity="center_horizontal"
+        android:text="Login with Facebook"
+        android:textColor="#E3D5E8"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvOR"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnLogin"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="196dp"
+        android:layout_marginTop="78dp"
+        android:backgroundTint="#B14D4D"
+        android:gravity="center_horizontal"
+        android:text="OR"
+        android:textColor="#CBB5D3"
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/etPassword"
-        android:layout_width="281dp"
-        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_height="33dp"
         android:layout_below="@+id/etUsername"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="58dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="62dp"
-        android:hint="password"
+        android:background="@drawable/instagram_input_text"
+        android:hint="   password"
+        android:inputType="textPassword"
+        android:textColor="#E5CEE8"
+        android:textColorHint="#E5CEE8"
         tools:layout_editor_absoluteX="223dp"
         tools:layout_editor_absoluteY="58dp" />
 
     <EditText
         android:id="@+id/etUsername"
-        android:layout_width="281dp"
-        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_height="37dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="68dp"
-        android:layout_marginEnd="60dp"
-        android:hint="username"
-        android:inputType="textPassword"
+        android:layout_marginStart="58dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginEnd="62dp"
+        android:background="@drawable/instagram_input_text"
+        android:hint="   username"
+        android:textColor="#E5CEE8"
+        android:textColorHint="#E5CEE8"
         tools:layout_editor_absoluteX="223dp"
         tools:layout_editor_absoluteY="58dp" />
 
@@ -42,20 +89,48 @@
         android:layout_below="@+id/etPassword"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="62dp"
+        android:layout_marginStart="61dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="62dp"
-        android:text="Login" />
+        android:layout_marginEnd="63dp"
+        android:shadowColor="#410651"
+        android:text="Login"
+        app:rippleColor="#DC22E3" />
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="316dp"
-        android:layout_height="34dp"
+        android:id="@+id/tvForgotDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/btnLogin"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="35dp"
+        android:layout_marginStart="58dp"
+        android:layout_marginTop="34dp"
+        android:backgroundTint="#B14D4D"
         android:gravity="center_horizontal"
-        android:text="Forgot your login details? Get help signing in." />
+        android:text="Forgot your login details?"
+        android:textColor="#CBB5D3" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="252dp"
+        android:layout_height="207dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginEnd="68dp"
+        app:srcCompat="@drawable/instagram_letter_better_white" />
+
+    <TextView
+        android:id="@+id/tvGetHelp"
+        android:layout_width="155dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnLogin"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="34dp"
+        android:layout_toEndOf="@+id/tvForgotDetails"
+        android:text="Get help signing in."
+        android:textColor="#CBB5D3"
+        android:textStyle="bold" />
 
 </RelativeLayout>

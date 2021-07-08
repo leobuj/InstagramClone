@@ -19,6 +19,7 @@ public class FeedActivity extends AppCompatActivity {
 
     public static final String TAG = "inside FeedActivity.java";
     private SwipeRefreshLayout swipeContainer;
+    private EndlessRecyclerViewScrollListener infiniteScrollListener;
     private RecyclerView rvPosts;
     protected PostsAdapter adapter;
     protected List<Post> allPosts;
@@ -36,9 +37,10 @@ public class FeedActivity extends AppCompatActivity {
         // set the adapter on the recycler view
         rvPosts.setAdapter(adapter);
         // set the layout manager on the recycler view
-        rvPosts.setLayoutManager(new LinearLayoutManager(this));
+        LinearLayoutManager Manager = new LinearLayoutManager(this);
+        rvPosts.setLayoutManager(Manager);
         // query posts from Parstagram
-        queryPosts();
+        queryPosts(0);
 
         swipeContainer = (SwipeRefreshLayout) findViewById(R.id.swipeContainer);
         // Setup refresh listener which triggers new data loading
@@ -49,7 +51,7 @@ public class FeedActivity extends AppCompatActivity {
                 // Make sure you call swipeContainer.setRefreshing(false)
                 // once the network request has completed successfully.
                 allPosts.clear();
-                queryPosts();
+                queryPosts(0);
                 swipeContainer.setRefreshing(false);
             }
         });
@@ -58,16 +60,30 @@ public class FeedActivity extends AppCompatActivity {
                 android.R.color.holo_green_light,
                 android.R.color.holo_orange_light,
                 android.R.color.holo_red_light);
+
+        infiniteScrollListener = new EndlessRecyclerViewScrollListener(Manager) {
+            @Override
+            public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
+                Log.e(TAG, "page = " + page + "\nTotal Items Count= " + totalItemsCount);
+                queryPosts(totalItemsCount);
+            }
+        };
+
+        // Adds the scroll listener to RecyclerView
+        rvPosts.addOnScrollListener(infiniteScrollListener);
     }
 
 
-    private void queryPosts() {
+    private void queryPosts(int totalItemsCount){
         // specify what type of data we want to query - Post.class
         ParseQuery<Post> query = ParseQuery.getQuery(Post.class);
         // include data referred by user key
         query.include(Post.KEY_USER);
-        // limit query to latest 20 items
-        query.setLimit(20);
+        // limit query to latest 10 items
+        query.setLimit(10);
+        if(totalItemsCount != 0) {
+            query.setSkip(totalItemsCount);
+        }
         // order posts by creation date (newest first)
         query.addDescendingOrder("createdAt");
         // start an asynchronous call for posts
@@ -91,7 +107,5 @@ public class FeedActivity extends AppCompatActivity {
             }
         });
     }
-
-
 
 }

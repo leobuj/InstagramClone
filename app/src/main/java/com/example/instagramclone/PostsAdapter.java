@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -13,7 +14,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.parse.ParseException;
 import com.parse.ParseFile;
+import com.parse.SaveCallback;
 
 import org.parceler.Parcels;
 
@@ -55,14 +58,18 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
         private TextView tvDescription;
         private ImageView ivImage;
         private ImageView ivProfileImage;
+        private ImageButton ibLike;
+        private TextView tvLikeCount;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tvDescription = itemView.findViewById(R.id.tvDescription);
             tvUsername = itemView.findViewById(R.id.tvUsername);
             tvUsernameCaption = itemView.findViewById(R.id.tvUsernameCaption);
+            tvLikeCount = itemView.findViewById(R.id.tvNumberOfLikes);
             ivImage = itemView.findViewById(R.id.ivImage);
             ivProfileImage = itemView.findViewById(R.id.ivProfileImage);
+            ibLike = itemView.findViewById(R.id.ibLike);
             itemView.setOnClickListener(this);
         }
 
@@ -71,6 +78,31 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
             tvDescription.setText(post.getDescription());
             tvUsername.setText(post.getUser().getUsername());
             tvUsernameCaption.setText(post.getUser().getUsername());
+            tvLikeCount.setText(post.getLikes());
+
+            ibLike.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int likes = Integer.parseInt((String) tvLikeCount.getText());
+                    likes++;
+                    tvLikeCount.setText(String.valueOf(likes));
+                    int position = getAdapterPosition();
+                    Post post = posts.get(position);
+                    post.setLikes(likes);
+                    Log.i("Inside saveCallBack", "post timestamp was " + post.getCreatedAt());
+                    post.saveInBackground(new SaveCallback() {
+                        @Override
+                        public void done(ParseException e) {
+                            Glide.with(context).load(R.drawable.ufi_heart_active).into(ibLike);
+                            Log.i("Inside saveCallBack", "post successfully liked");
+
+                        }
+                    });
+                    Log.i(TAG, "Trying to like post at position= " + getAdapterPosition() + "\n Number of likes it has now is " + post.getLikes());
+
+                }
+            });
+
             ParseFile image = post.getImage();
             if (image != null) {
                 Glide.with(context).load(image.getUrl()).into(ivImage);

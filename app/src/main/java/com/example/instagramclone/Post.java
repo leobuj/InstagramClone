@@ -40,11 +40,10 @@ public class Post extends ParseObject {
         return getUser().getParseFile(KEY_PROFILE_IMAGE);
     }
 
-    public int getLikes(){
-        return getUser().getInt(KEY_LIKES);
+    public String getLikes(){
+        return String.valueOf(getInt(KEY_LIKES));
     }
     public void setLikes(int numberOfLikes){
-        numberOfLikes = numberOfLikes+1;
         put(KEY_LIKES, numberOfLikes);
     }
 

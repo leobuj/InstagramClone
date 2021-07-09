@@ -51,6 +51,7 @@ public class FeedActivity extends AppCompatActivity {
                 // Make sure you call swipeContainer.setRefreshing(false)
                 // once the network request has completed successfully.
                 allPosts.clear();
+                adapter.notifyDataSetChanged();
                 queryPosts(0);
                 swipeContainer.setRefreshing(false);
             }
@@ -98,10 +99,10 @@ public class FeedActivity extends AppCompatActivity {
 
                 // for debugging purposes let's print every post description to logcat
                 for (Post post : posts) {
-                    Log.i(TAG, "Post: " + post.getDescription() + ", username: " + post.getUser().getUsername());
+                    Log.i(TAG, "Post: " + post.getDescription() + ", username: " + post.getUser().getUsername() + ", Number of likes = " + post.getLikes());
                 }
-
                 // save received posts to list and notify adapter of new data
+
                 allPosts.addAll(posts);
                 adapter.notifyDataSetChanged();
             }

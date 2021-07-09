@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,10 +16,13 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
+import androidx.fragment.app.Fragment;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseFile;
@@ -42,6 +46,8 @@ public class MainActivity extends AppCompatActivity {
     private Button btnSubmit;
     private ImageView ivSubmit;
     private File photoFile;
+    private BottomNavigationView bottomNavigationView;
+
 
 
     @Override
@@ -74,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
         btnCaptureImage = findViewById(R.id.btnTakePicture);
         btnSubmit = findViewById(R.id.btnSubmit);
         ivSubmit = findViewById(R.id.ivSubmittedPicture);
+        bottomNavigationView = findViewById(R.id.bottom_navigation);
 
 
         //queryPosts();
@@ -100,6 +107,27 @@ public class MainActivity extends AppCompatActivity {
                 ParseUser currentUser = ParseUser.getCurrentUser();
                 savePost(description, currentUser, photoFile);
             }
+        });
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                Fragment fragment;
+                switch (item.getItemId()) {
+                    case R.id.action_Home:
+                        // do something here
+                        Toast.makeText(MainActivity.this, "Home", Toast.LENGTH_SHORT).show();
+                        return true;
+                    case R.id.action_Compose:
+                        // do something here
+                        Toast.makeText(MainActivity.this, "Compose", Toast.LENGTH_SHORT).show();
+                        return true;
+                    case R.id.action_Profile:
+                        // do something here
+                        Toast.makeText(MainActivity.this, "Profile", Toast.LENGTH_SHORT).show();
+                        return true;
+                    default: return true;
+                } }
         });
     }
 

@@ -59,7 +59,7 @@ GIF created with [LiceKap](https://getkap.co/).
 List an 3rd party libraries, icons, graphics, or other assets you used in your app.
 
 - [Android Async Http Client](http://loopj.com/android-async-http/) - networking library
-- [Parse](https://parseplatform.org/) - backend databse
+- [Parse](https://parseplatform.org/) - backend database
 - [Glide](https://github.com/bumptech/glide) - Image loading and caching library for Android
 
 

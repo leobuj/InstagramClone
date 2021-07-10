@@ -6,15 +6,18 @@
         android:id="@+id/action_Home"
         android:icon="@android:drawable/ic_menu_compass"
         android:title="Home"
-        app:showAsAction="always" />
+        app:showAsAction="always"
+        android:enabled="true"/>
     <item
         android:id="@+id/action_Compose"
         android:icon="@android:drawable/ic_menu_edit"
         android:title="Compose"
-        app:showAsAction="always" />
+        app:showAsAction="always"
+        android:enabled="true"/>
     <item
         android:id="@+id/action_Profile"
         android:icon="@drawable/ic_baseline_person_24"
         android:title="Profile"
-        app:showAsAction="always" />
+        app:showAsAction="always"
+        android:enabled="true"/>
 </menu>

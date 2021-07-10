@@ -8,12 +8,26 @@
     android:background="@drawable/instagram_background">
 
 
+    <Button
+        android:id="@+id/btnCreateAccount"
+        android:layout_width="266dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etPassword"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="94dp"
+        android:layout_marginEnd="63dp"
+        android:shadowColor="#410651"
+        android:text="Create Account"
+        app:rippleColor="#DC22E3" />
+
     <ImageView
         android:id="@+id/ivFBlogo"
         android:layout_width="76dp"
         android:layout_height="22dp"
         android:layout_below="@+id/btnLogin"
-        android:layout_marginTop="115dp"
+        android:layout_marginTop="190dp"
         android:layout_marginEnd="-165dp"
         android:layout_toStartOf="@+id/tvLoginWithFacebook"
         app:srcCompat="@drawable/small_facebook" />
@@ -25,7 +39,7 @@
         android:layout_below="@+id/btnLogin"
         android:layout_alignParentStart="true"
         android:layout_marginStart="140dp"
-        android:layout_marginTop="117dp"
+        android:layout_marginTop="190dp"
         android:backgroundTint="#B14D4D"
         android:gravity="center_horizontal"
         android:text="Login with Facebook"
@@ -39,7 +53,7 @@
         android:layout_below="@+id/btnLogin"
         android:layout_alignParentStart="true"
         android:layout_marginStart="196dp"
-        android:layout_marginTop="78dp"
+        android:layout_marginTop="150dp"
         android:backgroundTint="#B14D4D"
         android:gravity="center_horizontal"
         android:text="OR"
@@ -103,7 +117,7 @@
         android:layout_below="@+id/btnLogin"
         android:layout_alignParentStart="true"
         android:layout_marginStart="58dp"
-        android:layout_marginTop="34dp"
+        android:layout_marginTop="80dp"
         android:backgroundTint="#B14D4D"
         android:gravity="center_horizontal"
         android:text="Forgot your login details?"
@@ -127,7 +141,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/btnLogin"
         android:layout_marginStart="4dp"
-        android:layout_marginTop="34dp"
+        android:layout_marginTop="80dp"
         android:layout_toEndOf="@+id/tvForgotDetails"
         android:text="Get help signing in."
         android:textColor="#CBB5D3"

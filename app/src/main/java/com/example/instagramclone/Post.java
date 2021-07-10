@@ -13,6 +13,8 @@ public class Post extends ParseObject {
     public static final String KEY_USER = "user";
     public static final String KEY_PROFILE_IMAGE = "profileImage";
     public static final String KEY_LIKES = "likes";
+    public static final String KEY_FOLLOWERS = "followers";
+    public static final String KEY_FOLLOWING = "following";
 
     public String getDescription(){
         return getString(KEY_DESCRIPTION);
@@ -38,6 +40,10 @@ public class Post extends ParseObject {
 
     public ParseFile getUserProfileImage(){
         return getUser().getParseFile(KEY_PROFILE_IMAGE);
+    }
+
+    public int getFollowers(){
+        return getUser().getInt(KEY_FOLLOWERS);
     }
 
     public String getLikes(){

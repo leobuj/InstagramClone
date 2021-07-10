@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.ProfileFragment">
+
+
+    <TextView
+        android:id="@+id/tvNumberOfPosts4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvNumberOfPosts"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="29dp"
+        android:layout_toEndOf="@+id/ivProfilePicProfile"
+        android:text="Following"
+        android:textColor="#000000" />
+
+    <TextView
+        android:id="@+id/tvNumberOfPosts2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvNumberOfPosts"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="29dp"
+        android:layout_toEndOf="@+id/ivProfilePicProfile"
+        android:text="Posts"
+        android:textColor="#000000" />
+
+    <TextView
+        android:id="@+id/tvNumberOfPosts3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvNumberOfPosts"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="30dp"
+        android:layout_toEndOf="@+id/ivProfilePicProfile"
+        android:text="Followers"
+        android:textColor="#000000" />
+
+    <ImageView
+        android:id="@+id/ivProfilePicProfile"
+        android:layout_width="110dp"
+        android:layout_height="109dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="14dp"
+        tools:src="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/tvNumberOfPosts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="43dp"
+        android:layout_marginTop="31dp"
+        android:layout_toEndOf="@+id/ivProfilePicProfile"
+        android:text="0" />
+
+    <TextView
+        android:id="@+id/tvNumberOfFollowing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="242dp"
+        android:layout_marginTop="31dp"
+        android:layout_toEndOf="@+id/ivProfilePicProfile"
+        android:text="0" />
+
+    <TextView
+        android:id="@+id/tvNumberOfFollowers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="97dp"
+        android:layout_marginTop="39dp"
+        android:layout_toEndOf="@+id/ivProfilePicProfile"
+        android:gravity="center_horizontal"
+        android:text="TextView"
+        android:textColor="#000000"
+        android:textSize="17sp" />
+
+    <TextView
+        android:id="@+id/tvUsernameProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ivProfilePicProfile"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="15dp"
+        android:text="TextView"
+        android:textColor="#000000"
+        android:textSize="19sp"
+        android:textStyle="bold" />
+</RelativeLayout>

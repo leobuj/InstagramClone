@@ -78,6 +78,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
             tvDescription.setText(post.getDescription());
             tvUsername.setText(post.getUser().getUsername());
             tvUsernameCaption.setText(post.getUser().getUsername());
+            String UsernameCaptionAndDescription = "<b>" + post.getUser().getUsername() + "</b>"+ post.getDescription();
             tvLikeCount.setText(post.getLikes());
 
             ibLike.setOnClickListener(new View.OnClickListener() {

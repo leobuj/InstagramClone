@@ -49,14 +49,19 @@ Please list two areas of the assignment you'd like to **discuss further with you
 Here's a walkthrough of implemented user stories:
 
 <img src='instagramWalkthrough.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='instagramPhone.png' title='App Icon' width='' alt='Video Walkthrough' />
 
-GIF created with [Kap](https://getkap.co/).
+
+GIF created with [LiceKap](https://getkap.co/).
 
 ## Credits
 
 List an 3rd party libraries, icons, graphics, or other assets you used in your app.
 
 - [Android Async Http Client](http://loopj.com/android-async-http/) - networking library
+- [Parse](https://parseplatform.org/) - backend databse
+- [Glide](https://github.com/bumptech/glide) - Image loading and caching library for Android
+
 
 
 ## Notes
